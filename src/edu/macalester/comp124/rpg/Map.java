@@ -16,65 +16,51 @@ public class Map {
     int pX, pY;
     char[][] map;
 
-
-
     public Map(){
         map= new char[WIDTH][HEIGHT];
         pX = 0;
         pY = 0;
         fillMatrix();
+        addWall();
     }
 
     public void fillMatrix(){
         for (int x = 0; x<WIDTH; x++){
             for (int y = 0; y<HEIGHT; y++){
-                if (y==WALL_TOP && x>=WALL_LEFT_BOUND && x<= WALL_RIGHT_BOUND) {
-                   map[x][y]= 'w';
-                } else if (x==WALL_LEFT_BOUND && y>=WALL_TOP && y<= WALL_BOTTOM){
-                   map[x][y] = 'w';
-                } else {
-                   map[x][y] = '.';
-                }
+                   map[x][y] = filler;
             }
         }
         map[pX][pY] = pChar;
     }
 
-    public void setPlayer(int x, int y ){
-        int oldX = pX;
-        int oldY = pY;
-        if (map[x][y]!= 'w'){
-            pX=x;
-            pY=y;
-            if (x<0){
-                pX=0;
-            } else if(x>=WIDTH){
-                pX=WIDTH-1;
-            } else if(y<0){
-                pY=0;
-            } else if (y>=HEIGHT){
-                pY=HEIGHT-1;
-            }
-            map[oldX][oldY] = filler;
+    public void addWall(){
+        for (int x=WALL_LEFT_BOUND; x<=WALL_RIGHT_BOUND; x++){
+            map[x][WALL_TOP] = 'w';
         }
-        this.map[pX][pY]=pChar;
+        for (int y=WALL_TOP; y<=WALL_BOTTOM; y++){
+            map[WALL_LEFT_BOUND][y] = 'w';
+            map[WALL_RIGHT_BOUND][y] = 'w';
+        }
     }
-
 
     public void movePlayer(char c){
         map[pX][pY] = filler;
         int newY=pY;
         int newX=pX;
-        if (c=='n'){
+        if (c=='n' && pY!=0){
             newY=pY-1;
-        } else if(c=='s'){
+        } else if(c=='s' && pY!=HEIGHT-1){
             newY=(pY+1);
-        } else if(c=='e'){
+        } else if(c=='e' && pX!=WIDTH-1){
             newX=pX+1;
-        } else if(c=='w'){
+        } else if(c=='w' && pX!=0){
             newX=pX-1;
         }
-        setPlayer(newX, newY);
+        if (map[newX][newY]!= 'w') {
+           pX=newX;
+           pY = newY;
+        }
+        map[pX][pY] = pChar;
     }
 
     @Override
