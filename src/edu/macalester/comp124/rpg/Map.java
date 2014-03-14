@@ -4,15 +4,17 @@ package edu.macalester.comp124.rpg;
  * Created by Laura on 3/13/14.
  */
 public class Map {
-    private static int WIDTH = 10;
-    private static int HEIGHT = 10;
-    private static int WALL_LEFT_BOUND = 3;
-    private static int WALL_RIGHT_BOUND = 6;
-    private static int WALL_TOP = 2;
-    private static int WALL_BOTTOM = 7;
+    private static int WIDTH = 50;
+    private static int HEIGHT = 20;
+    private static int LEFT_WALL = 15;
+    private static int LEFT_DOOR_THREE = 13;
+    private static int LEFT_DOOR_FOUR = 14;
+    private static int LEFT_DOOR = 2;
+    private static int LEFT_DOOR_TWO = 3;
 
     char pChar = '@';
     char filler = '.';
+    char wall = 'w';
     int pX, pY;
     char[][] map;
 
@@ -21,26 +23,28 @@ public class Map {
         pX = 0;
         pY = 0;
         fillMatrix();
-        addWall();
+        addWalls();
     }
 
     public void fillMatrix(){
         for (int x = 0; x<WIDTH; x++){
             for (int y = 0; y<HEIGHT; y++){
-                   map[x][y] = filler;
+                map[x][y] = filler;
             }
         }
         map[pX][pY] = pChar;
     }
 
-    public void addWall(){
-        for (int x=WALL_LEFT_BOUND; x<=WALL_RIGHT_BOUND; x++){
-            map[x][WALL_TOP] = 'w';
+    public void addWalls(){
+        for (int y=0; y<HEIGHT; y++){
+            if (y!=LEFT_DOOR && y!=LEFT_DOOR_TWO && y!=LEFT_DOOR_THREE && y!=LEFT_DOOR_FOUR){
+                map[LEFT_WALL][y] = wall;
+            }
         }
-        for (int y=WALL_TOP; y<=WALL_BOTTOM; y++){
-            map[WALL_LEFT_BOUND][y] = 'w';
-            map[WALL_RIGHT_BOUND][y] = 'w';
+        for (int x=0; x<=LEFT_WALL; x++){
+            map[x][HEIGHT/2] = wall;
         }
+
     }
 
     public void movePlayer(char c){
