@@ -68,7 +68,6 @@ public class Game
 				x = player.x-1;
 				break;
 		}
-
         String newSpace = map.terrain[x][y]; //gets character value in that
         //if the character in that space is not a key in the dictionary of impassible characters, the player position is reset
         if (!map.passibility.containsKey(newSpace)){
