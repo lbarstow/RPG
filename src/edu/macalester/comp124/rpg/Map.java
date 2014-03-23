@@ -1,76 +1,76 @@
 package edu.macalester.comp124.rpg;
 
 public class Map {
+    private static int WIDTH = 50;
+    private static int HEIGHT = 20;
+    private static int LEFT_WALL = 15;
+    private static int LEFT_DOOR_THREE = 13;
+    private static int LEFT_DOOR_FOUR = 14;
+    private static int LEFT_DOOR = 2;
+    private static int LEFT_DOOR_TWO = 3;
+    private static int RIGHT_WALL = 21;
+
     char pChar = '@';
     char filler = '.';
-
-    char tChar;
-    int height, width;
+    char wall = 'w';
     int pX, pY;
-    int tX, tY;
     char[][] map;
 
-
-    public Map(int width, int height, char tC){
-        this.height= height;
-        this.width = width;
-        this.map= new char[width][height];
-        this.tChar = tC;
-        fillMatrix(filler);
-
+    public Map(){
+        map= new char[WIDTH][HEIGHT];
+        pX = 0;
+        pY = 0;
+        fillMatrix();
+        addWalls();
     }
 
-    public void fillMatrix(char r){
-        for (int x = 0; x<width; x++){
-            for (int y = 0; y<height; y++){
-                map[x][y]=r;
+    public void fillMatrix(){
+        for (int x = 0; x<WIDTH; x++){
+            for (int y = 0; y<HEIGHT; y++){
+                map[x][y] = filler;
             }
         }
+        map[pX][pY] = pChar;
     }
 
-    public void setPlayer(int x, int y ){
-        pX=x;
-        pY=y;
-        if (x<0){
-            pX=0;
-        } else if(x>width-1){
-            pX=width-1;
+    public void addWalls(){
+        for (int y=0; y<HEIGHT; y++){
+            if (y!=LEFT_DOOR && y!=LEFT_DOOR_TWO && y!=LEFT_DOOR_THREE && y!=LEFT_DOOR_FOUR){
+                map[LEFT_WALL][y] = wall;
+                map[RIGHT_WALL][y] = wall;
+            }
         }
-        if(y<0){
-            pY=0;
-        } else if (y>height-1){
-            pY=height-1;
+        for (int x=0; x<=LEFT_WALL; x++){
+            map[x][HEIGHT/2] = wall;
         }
-        map[pX][pY]=pChar;
-    }
 
-    public void setTarget(int x, int y){
-        tX=x;
-        tY=y;
-        map[tX][tY]=tChar;
     }
 
     public void movePlayer(char c){
         map[pX][pY] = filler;
         int newY=pY;
         int newX=pX;
-        if (c=='n'){
+        if (c=='n' && pY!=0){
             newY=pY-1;
-        } else if(c=='s'){
+        } else if(c=='s' && pY!=HEIGHT-1){
             newY=(pY+1);
-        } else if(c=='e'){
+        } else if(c=='e' && pX!=WIDTH-1){
             newX=pX+1;
-        } else if(c=='w'){
+        } else if(c=='w' && pX!=0){
             newX=pX-1;
         }
-        setPlayer(newX, newY);
+        if (map[newX][newY]!= 'w') {
+           pX=newX;
+           pY = newY;
+        }
+        map[pX][pY] = pChar;
     }
 
     @Override
     public String toString(){
         String content = "";
-        for (int y = 0; y<height; y++){
-            for (int x =0; x<width; x++){
+        for (int y = 0; y<HEIGHT; y++){
+            for (int x =0; x<WIDTH; x++){
                 content+= map[x][y];
             }
             content += System.lineSeparator();
