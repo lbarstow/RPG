@@ -11,6 +11,7 @@ public class Map {
     private static int LEFT_DOOR_FOUR = 14;
     private static int LEFT_DOOR = 2;
     private static int LEFT_DOOR_TWO = 3;
+    private static int RIGHT_WALL = 21;
 
     char pChar = '@';
     char filler = '.';
@@ -39,6 +40,7 @@ public class Map {
         for (int y=0; y<HEIGHT; y++){
             if (y!=LEFT_DOOR && y!=LEFT_DOOR_TWO && y!=LEFT_DOOR_THREE && y!=LEFT_DOOR_FOUR){
                 map[LEFT_WALL][y] = wall;
+                map[RIGHT_WALL][y] = wall;
             }
         }
         for (int x=0; x<=LEFT_WALL; x++){
