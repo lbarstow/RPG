@@ -41,6 +41,8 @@ public class Map implements KeyListener{
             }
         }
         map[xPlace][yPlace] = hero;
+        objXPlace = dice.nextInt();
+        objYPlace = dice.nextInt();
     }
 
    public void move2 (KeyEvent e){
