@@ -9,8 +9,8 @@ import java.util.List;
 
 public class ImageLibrary
 {
-	String imageCatalogFileName = "hw5RPG/maps/image names.txt";
-	String imageDirectory = "hw5RPG/images/";
+	String imageCatalogFileName = "RPG/maps/image names.txt";
+	String imageDirectory = "RPG/images/";
 
 	public HashMap<String, Image> images = new HashMap<>();
 
