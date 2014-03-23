@@ -1,5 +1,6 @@
 package hw5;
 
+import java.awt.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,42 +25,56 @@ public class Game
 
 		//--- Create a player, stick him in the top left corner
 		player = new Player();
-		player.x = 2;
-		player.y = 2;
+		player.x = 1;
+		player.y = 1;
 
 		//--- Add the player to the agents list. This list controls
 		agents.add(player);
 	}
 
-	public void movePlayer(int x, int y)
+/*	public void movePlayer(int x, int y)
 	{
+        String newSpace = map.terrain[x][y]; //gets character value in that
+        //if the character in that space is not a key in the dictionary of impassible characters, the player position is reset
+        if (!map.passibility.containsKey(newSpace)){
+            player.x = x;
+            player.y = y;
+        }
+
 		//--- Don't do anything if the move is illega
 
-		//--- Move the player to the new spot
-		player.x = x;
-		player.y = y;
 
 		//--- Assuming this is the last thing that happens in the round,
 		//---	start a new round. This lets the other agents make their moves.
 		nextTurn();
 	}
+*/
 	public void movePlayer(char direction)
 	{
+        int x = player.x;
+        int y = player.y;
 		switch(direction)
 		{
 			case 'n':
-				movePlayer(player.x, player.y-1);
+				y = player.y-1;
 				break;
 			case 's':
-				movePlayer(player.x, player.y+1);
+				y = player.y+1;
 				break;
 			case 'e':
-				movePlayer(player.x+1, player.y);
+				x = player.x+1;
 				break;
 			case 'w':
-				movePlayer(player.x-1, player.y);
+				x = player.x-1;
 				break;
 		}
+
+        String newSpace = map.terrain[x][y]; //gets character value in that
+        //if the character in that space is not a key in the dictionary of impassible characters, the player position is reset
+        if (!map.passibility.containsKey(newSpace)){
+            player.x = x;
+            player.y = y;
+        }
 	}
 
 	/**
