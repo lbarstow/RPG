@@ -1,5 +1,6 @@
 package hw5;
 
+import java.awt.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -33,11 +34,17 @@ public class Game
 
 	public void movePlayer(int x, int y)
 	{
+        String newSpace = map.terrain[x][y];
+        if (!map.passibility.containsKey(newSpace)){
+            player.x = x;
+            player.y = y;
+        }
+
 		//--- Don't do anything if the move is illega
 
 		//--- Move the player to the new spot
-		player.x = x;
-		player.y = y;
+		//player.x = x;
+		//player.y = y;
 
 		//--- Assuming this is the last thing that happens in the round,
 		//---	start a new round. This lets the other agents make their moves.
