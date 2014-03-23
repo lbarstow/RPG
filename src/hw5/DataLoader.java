@@ -63,7 +63,7 @@ public class DataLoader
 
 	static protected List<String> splitIntoSentences(List<String> text)
 	{
-		List<String> sentences = new ArrayList<>();
+		List<String> sentences = new ArrayList<String>();
 
 		for (String line : text)
 		{
@@ -84,7 +84,7 @@ public class DataLoader
 	 */
 	static protected List<String> splitIntoSentences(String line)
 	{
-		List<String> sentences = new ArrayList<>();
+		List<String> sentences = new ArrayList<String>();
 
 		BreakIterator iterator = BreakIterator.getSentenceInstance(Locale.US);
 		iterator.setText(line);
