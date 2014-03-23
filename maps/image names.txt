@@ -12,9 +12,9 @@ player , actor.png
 g , gold.png
 
 # Terrain (grass, trees, castles, etc.)
-. , grass.png
+. , floor.png
 l , lava.png
-^ , mountain.png
+^ , wall.png
 T , tree.png
 ~ , water.png
 o , white.png , A white square. Use if nothing is at that spot.

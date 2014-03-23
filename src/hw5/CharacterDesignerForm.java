@@ -20,7 +20,7 @@ import java.util.Map;
 public class CharacterDesignerForm extends javax.swing.JFrame
 {
 	//<editor-fold defaultstate="collapsed" desc="graphics variables">
-	Map<String,Image> images = new HashMap<>();
+	Map<String,Image> images = new HashMap<String,Image>();
 	BufferedImage backBufferContainer;
 	Graphics backBuffer, frontBuffer;
 	//</editor-fold>
@@ -93,7 +93,7 @@ public class CharacterDesignerForm extends javax.swing.JFrame
 		items[0] = new EquipableItem("background white", "");
 		items[1] = new EquipableItem("background forest", "Forest");
 		items[2] = new EquipableItem("background scary forest", "Scary Forest");
-		backgroundsModel = new DefaultComboBoxModel<>(items);
+		backgroundsModel = new DefaultComboBoxModel<EquipableItem>(items);
 		backgroundsComboBox.setModel(backgroundsModel);
 		backgroundsComboBox.setSelectedIndex(0);
 
@@ -102,7 +102,7 @@ public class CharacterDesignerForm extends javax.swing.JFrame
 		items[0] = null;
 		items[1] = new EquipableItem("beanie", "Beanie of Strength");
 		items[2] = new EquipableItem("helm", "Helm of Fortitude");
-		headModel = new DefaultComboBoxModel<>(items);
+		headModel = new DefaultComboBoxModel<EquipableItem>(items);
 		headComboBox.setModel(headModel);
 
 		//--- Hands
@@ -113,7 +113,7 @@ public class CharacterDesignerForm extends javax.swing.JFrame
 		items[3] = new EquipableItem("sword blue", "Ice Blade");
 		items[4] = new EquipableItem("sword curvy", "Ebony Scimitar");
 		items[5] = new EquipableItem("sword red", "Flame Blade");
-		handsModel = new DefaultComboBoxModel<>(items);
+		handsModel = new DefaultComboBoxModel<EquipableItem>(items);
 		handsComboBox.setModel(handsModel);
 
 		//--- Feet
@@ -121,7 +121,7 @@ public class CharacterDesignerForm extends javax.swing.JFrame
 		items[0] = null;
 		items[1] = new EquipableItem("boots", "Boots");
 		items[2] = new EquipableItem("crocs", "Gator Boots");
-		feetModel = new DefaultComboBoxModel<>(items);
+		feetModel = new DefaultComboBoxModel<EquipableItem>(items);
 		feetComboBox.setModel(feetModel);
 	}
 

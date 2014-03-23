@@ -19,7 +19,7 @@ public class MainForm extends javax.swing.JFrame
 	BufferedImage backBufferContainer;
 	Graphics frontBuffer, backBuffer;
 	ImageLibrary imageLibrary;
-	HashMap<String, Image> scaledImages = new HashMap<>();
+	HashMap<String, Image> scaledImages = new HashMap<String, Image>();
 
 	Game game;	// We are the view and controller, game is the model
 	//</editor-fold>
