@@ -32,23 +32,7 @@ public class Game
 		agents.add(player);
 	}
 
-/*	public void movePlayer(int x, int y)
-	{
-        String newSpace = map.terrain[x][y]; //gets character value in that
-        //if the character in that space is not a key in the dictionary of impassible characters, the player position is reset
-        if (!map.passibility.containsKey(newSpace)){
-            player.x = x;
-            player.y = y;
-        }
 
-		//--- Don't do anything if the move is illegal
-
-
-		//--- Assuming this is the last thing that happens in the round,
-		//---	start a new round. This lets the other agents make their moves.
-		nextTurn();
-	}
-*/
 	public void movePlayer(char direction)
 	{
         int x = player.x;
@@ -69,9 +53,13 @@ public class Game
 				break;
 		}
         String newSpace = map.terrain[x][y]; //gets character value in that spot on terrain map.
-        if (null != map.items[x][y]){
+        //if player walks over an item, pick it up
+        String item = map.items[x][y];
+        if (null != item){
             map.pickUP(x, y);
-            player.goldPickup();
+            if (item.equals("g")){
+                player.goldPickup();
+            }
         }
         //if the character in that space is not a key in the dictionary of impassible characters, the player position is reset
         if (!map.passibility.containsKey(newSpace)){

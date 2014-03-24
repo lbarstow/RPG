@@ -10,6 +10,7 @@ player , actor.png
 
 # Items
 g , gold.png
+r , red.png
 
 # Terrain (grass, trees, castles, etc.)
 . , floor.png
