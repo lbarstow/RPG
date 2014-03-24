@@ -150,6 +150,9 @@ public class MainForm extends javax.swing.JFrame
 	 */
 	public void processMouseClick(int x, int y, String componentID)
 	{
+        if (null == componentID){
+            return;
+        }
 		if (componentID.equals("map panel"))
 		{
 			onClickedOnMap(x,y);

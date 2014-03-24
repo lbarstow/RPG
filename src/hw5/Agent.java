@@ -22,5 +22,4 @@ abstract class Agent
 	 * For this game, this normally means they decide where to move.
 	 */
 	abstract public void think();
-    abstract public void goldPickup();
 }

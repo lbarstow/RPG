@@ -11,7 +11,7 @@ import java.util.List;
 public class Game
 {
 	public Map map;
-	public Agent player;	// change this to whatever subclass player is
+	public Player player;	// change this to whatever subclass player is
 
 	//--- A list of all the agents in the game (player, NPCs, monsters, etc.)
 	//--- We need to know this so we know who to draw and so that we can ask
