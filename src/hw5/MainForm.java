@@ -215,7 +215,7 @@ public class MainForm extends javax.swing.JFrame
 		super.paint(g);
 
 		//--- Clear out the old picture we made
-		backBuffer.setColor(Color.LIGHT_GRAY);
+		backBuffer.setColor(Color.GRAY);
 		backBuffer.fillRect(0, 0, 2048, 2048);
 
 		drawTerrain();
