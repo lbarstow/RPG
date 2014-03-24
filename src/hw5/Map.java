@@ -71,6 +71,10 @@ public class Map
 	}
 	//</editor-fold>
 
+    public void pickUP(int x, int y){
+        items[x][y] = null;
+    }
+
 
 
 

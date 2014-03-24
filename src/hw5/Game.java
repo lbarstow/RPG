@@ -69,6 +69,7 @@ public class Game
 				break;
 		}
         String newSpace = map.terrain[x][y]; //gets character value in that spot on terrain map.
+        map.pickUP(x, y);
         //if the character in that space is not a key in the dictionary of impassible characters, the player position is reset
         if (!map.passibility.containsKey(newSpace)){
             player.x = x;
