@@ -32,7 +32,6 @@ public class Game
 		agents.add(player);
 	}
 
-
 	public void movePlayer(char direction)
 	{
         int x = player.x;
@@ -52,7 +51,8 @@ public class Game
 				x = player.x-1;
 				break;
 		}
-        String newSpace = map.terrain[x][y]; //gets character value in that spot on terrain map.
+        String newSpace = map.terrain[x][y];
+        //gets character value in that spot on terrain map.
         //if player walks over an item, pick it up
         String item = map.items[x][y];
         if (null != item){

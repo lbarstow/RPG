@@ -14,7 +14,8 @@ public class Player
         this.gold = 0;
 	}
 
-    public void goldPickup(){
+    public void goldPickup()
+    {
         this.gold += 1;
         System.out.println("player has " + this.gold + " gold");
     }

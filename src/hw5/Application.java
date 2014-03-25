@@ -13,6 +13,8 @@ public class Application
 		//--- The thing that draws the picture is called the View
 		//--- The thing that lets players select actions is the Controller
 		Game theGame = new Game();
+        CharacterDesignerForm makeChar = new CharacterDesignerForm();
+        makeChar.setVisible(true);
 
 
 		// TODO: Load character screen, create/edit character

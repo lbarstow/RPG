@@ -75,10 +75,6 @@ public class Map
         items[x][y] = null;
     }
 
-
-
-
-
 	//<editor-fold defaultstate="collapsed" desc="Object overrides">
 	@Override
 	public String toString()
