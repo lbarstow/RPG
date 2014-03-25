@@ -14,6 +14,7 @@ r , red.png
 
 # Terrain (grass, trees, castles, etc.)
 n , gnomeFloor.png
+s , skeletonFloor.png
 e , eyeHands.png
 f , firey.png
 . , floor.png
