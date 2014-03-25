@@ -12,6 +12,9 @@ player , actor.png
 g , gold.png
 
 # Terrain (grass, trees, castles, etc.)
+n , gnomeFloor.png
+e , eyeHands.png
+f , firey.png
 . , floor.png
 l , lava.png
 ^ , wall.png

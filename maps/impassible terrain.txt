@@ -5,3 +5,6 @@
 ^ , wall
 T , tree
 ~ , water
+n , Gnome
+f , Firey
+e , eyeHands
