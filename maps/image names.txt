@@ -13,6 +13,9 @@ g , gold.png
 r , red.png
 
 # Terrain (grass, trees, castles, etc.)
+n , gnomeFloor.png
+e , eyeHands.png
+f , firey.png
 . , floor.png
 l , lava.png
 ^ , wall.png
