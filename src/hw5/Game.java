@@ -11,7 +11,7 @@ import java.util.List;
 public class Game
 {
 	public Map map;
-	public Agent player;	// change this to whatever subclass player is
+	public Player player;	// change this to whatever subclass player is
 
 	//--- A list of all the agents in the game (player, NPCs, monsters, etc.)
 	//--- We need to know this so we know who to draw and so that we can ask
@@ -32,23 +32,6 @@ public class Game
 		agents.add(player);
 	}
 
-/*	public void movePlayer(int x, int y)
-	{
-        String newSpace = map.terrain[x][y]; //gets character value in that
-        //if the character in that space is not a key in the dictionary of impassible characters, the player position is reset
-        if (!map.passibility.containsKey(newSpace)){
-            player.x = x;
-            player.y = y;
-        }
-
-		//--- Don't do anything if the move is illegal
-
-
-		//--- Assuming this is the last thing that happens in the round,
-		//---	start a new round. This lets the other agents make their moves.
-		nextTurn();
-	}
-*/
 	public void movePlayer(char direction)
 	{
         int x = player.x;
@@ -68,8 +51,16 @@ public class Game
 				x = player.x-1;
 				break;
 		}
-
-        String newSpace = map.terrain[x][y]; //gets character value in that
+        String newSpace = map.terrain[x][y];
+        //gets character value in that spot on terrain map.
+        //if player walks over an item, pick it up
+        String item = map.items[x][y];
+        if (null != item){
+            map.pickUP(x, y);
+            if (item.equals("g")){
+                player.goldPickup();
+            }
+        }
         //if the character in that space is not a key in the dictionary of impassible characters, the player position is reset
         if (!map.passibility.containsKey(newSpace)){
             player.x = x;
