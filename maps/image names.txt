@@ -8,6 +8,7 @@
 # Actors (player, monsters, etc.)
 player , actor.png
 
+
 # Items
 g , gold.png
 r , red.png

@@ -8,6 +8,7 @@ public class Player
 	extends Agent
 {
     int gold;
+    int strength;
 	public Player()
 	{
 		super("player");
@@ -17,7 +18,7 @@ public class Player
     public void goldPickup()
     {
         this.gold += 1;
-        System.out.println("player has " + this.gold + " gold");
+      //  System.out.println("player has " + this.gold + " gold");
     }
 
 	@Override

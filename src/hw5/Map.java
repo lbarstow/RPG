@@ -25,7 +25,6 @@ public class Map
 	private void loadPassabilityInformation()
 	{
 		String fileName  = "impassible terrain.txt";
-
 		List<String> lines = DataLoader.loadLinesFromFile(mapsDirectoryName + fileName);
 		for (int i = 0; i < lines.size(); i++)
 		{
@@ -35,7 +34,12 @@ public class Map
 			{
 				String[] tokens = line.split(",");
 				String key = tokens[0].trim();
-				passibility.put(key, false);
+                if (!key.equals("n") && !key.equals("e") && !key.equals("f")){
+                    passibility.put(key, false);
+                } else{
+                    passibility.put(key, true);
+                }
+
 			}
 		}
 	}

@@ -65,6 +65,8 @@ public class Game
         if (!map.passibility.containsKey(newSpace)){
             player.x = x;
             player.y = y;
+        } else if (map.passibility.get(newSpace)){
+            onTouchMonster(newSpace);
         }
 	}
 
@@ -77,8 +79,9 @@ public class Game
 		//--- Do whatever you do in a turn
 	}
 
-	private void onTouchMonster()
+	private void onTouchMonster(String monster)
 	{
+        System.out.println("hit monster " + monster);
 		//--- Who did you run into?
 
 		//--- Time to fight
