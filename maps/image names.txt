@@ -11,6 +11,7 @@ player , actor.png
 # Items
 g , gold.png
 r , red.png
+q , sword.png
 
 # Terrain (grass, trees, castles, etc.)
 n , gnomeFloor.png
