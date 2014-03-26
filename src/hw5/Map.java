@@ -36,10 +36,9 @@ public class Map
 				String key = tokens[0].trim();
                 if (!key.equals("n") && !key.equals("e") && !key.equals("f")){
                     passibility.put(key, false);
-                } else{
+                } else {
                     passibility.put(key, true);
                 }
-
 			}
 		}
 	}
