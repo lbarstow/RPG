@@ -9,6 +9,7 @@ public class Player
 {
     int gold;
     int strength;
+
 	public Player()
 	{
 		super("player");

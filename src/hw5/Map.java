@@ -34,7 +34,7 @@ public class Map
 			{
 				String[] tokens = line.split(",");
 				String key = tokens[0].trim();
-                if (!key.equals("n") && !key.equals("e") && !key.equals("f")){
+                if (!key.equals("n") && !key.equals("e") && !key.equals("f") && !key.equals("s")){
                     passibility.put(key, false);
                 } else {
                     passibility.put(key, true);
