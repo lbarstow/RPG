@@ -12,6 +12,8 @@ player , actor.png
 g , gold.png
 r , red.png
 q , sword.png
+d , shield.png
+h , Helm.png
 
 # Terrain (grass, trees, castles, etc.)
 n , gnomeFloor.png
