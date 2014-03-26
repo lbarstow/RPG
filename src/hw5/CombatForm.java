@@ -5,6 +5,9 @@ import javax.swing.*;
 /**
  * Created by Jenny on 3/25/14.
  */
-public class CombatForm {
+public class CombatForm extends javax.{
 
+    private JButton fastAttackButton;
+    private JButton heavyAttackButton;
+    private JButton mediumAttackButt;
 }
