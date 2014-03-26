@@ -12,13 +12,14 @@ public class Player
     int gold;
     int damage;
     int health;
-    ArrayList<EquipableItem> inventory = new ArrayList<EquipableItem>;
+    ArrayList<String> items;
     boolean isAlive;
 	public Player()
 	{
 		super("player");
         this.gold = 0;
         isAlive = true;
+        this.items = new ArrayList<String>;
 	}
 
     public void goldPickup()
