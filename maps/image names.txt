@@ -18,11 +18,11 @@ h , Helm.png
 
 # Terrain (grass, trees, castles, etc.)
 n , gnomeFloor.png
-s , skeletonFloor.png
+s , pheonixFloor.png
 e , eyeHands.png
 f , firey.png
 . , floor.png
-l , lava.png
+l , ogre.png
 ^ , wall.png
 T , tree.png
 ~ , water.png
