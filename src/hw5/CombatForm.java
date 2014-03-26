@@ -7,6 +7,4 @@ import javax.swing.*;
  */
 public class CombatForm {
 
-    private JTextField textField1;
-    private JTextArea textArea1;
 }
