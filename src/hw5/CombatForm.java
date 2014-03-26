@@ -17,7 +17,6 @@ public class CombatForm extends javax.swing.JFrame implements ActionListener{
     private JLabel text;
     private JPanel panel;
     private JPanel buttonPanel;
-    private ImageLibrary images;
 
     public CombatForm(){
         setSize(400,400);
@@ -30,12 +29,9 @@ public class CombatForm extends javax.swing.JFrame implements ActionListener{
         heavyAttackButton = new JButton("Heavy Attack");
         heavyAttackButton.addActionListener(this);
         text = new JLabel();
-        images = new ImageLibrary();
-
 
         this.add(panel);
         panel.add(text);
-        panel.add(images.loadImage);
         panel.add(buttonPanel);
         buttonPanel.add(fastAttackButton);
         buttonPanel.add(mediumAttackButton);
