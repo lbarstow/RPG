@@ -10,13 +10,16 @@ public class Player
 	extends Agent
 {
     int gold;
-    int strength;
+    int damage;
+    int health;
     ArrayList<String> items;
+    boolean isAlive;
 
 	public Player()
 	{
 		super("player");
         this.gold = 0;
+        isAlive = true;
         this.items = new ArrayList<String>();
 	}
 
