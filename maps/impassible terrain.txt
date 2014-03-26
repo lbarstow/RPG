@@ -8,3 +8,4 @@ T , tree
 n , Gnome
 f , Firey
 e , eyeHands
+s , skeleton
