@@ -125,7 +125,7 @@ public class Game
 		//--- Who did you run into?
 
 		//--- Time to fight
-//		CombatForm form = new CombatForm();
+
 //		form.game = this;	// let them know about us so they can talk to us
 //		form.enemies = ???;
 //		form.run();
