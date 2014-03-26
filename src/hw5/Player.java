@@ -1,5 +1,7 @@
 package hw5;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author baylor
@@ -8,10 +10,15 @@ public class Player
 	extends Agent
 {
     int gold;
+    int damage;
+    int health;
+    ArrayList<EquipableItem> inventory = new ArrayList<EquipableItem>;
+    boolean isAlive;
 	public Player()
 	{
 		super("player");
         this.gold = 0;
+        isAlive = true;
 	}
 
     public void goldPickup()
