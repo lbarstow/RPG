@@ -8,5 +8,5 @@ T , tree
 n , Gnome
 f , Firey
 e , eyeHands
-s , skeleton
+s , pheonix
 l , ogre.png
