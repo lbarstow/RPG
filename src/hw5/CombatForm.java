@@ -10,4 +10,5 @@ public class CombatForm extends javax.swing.JFrame{
     private JButton fastAttackButton;
     private JButton heavyAttackButton;
     private JButton mediumAttackButt;
+    private JLabel EnemyPicture;
 }
