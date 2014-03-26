@@ -20,6 +20,7 @@ public class Game
 	public List<Agent> agents = new LinkedList<Agent>();
 
     public HashMap<String, EquipableItem> weapons = new HashMap<>();
+    public HashMap<String, Monster> creatures = new HashMap<>();
 
 	public Game()
 	{
@@ -37,6 +38,14 @@ public class Game
         weapons.put("h", item);
         item = new EquipableItem("d", "sheild");
         weapons.put("d", item);
+
+        Monster monster = new Monster("EyeMan", 1, 1);
+        creatures.put("e", monster);
+        monster = new Monster("Fire Monster", 1, 1);
+        creatures.put("f", monster);
+        monster = new Monster("Ogre", 1, 1);
+        creatures.put("l", monster);
+
 
 		//--- Add the player to the agents list. This list controls
 		agents.add(player);
@@ -72,10 +81,11 @@ public class Game
             } else if (item.equals("q") || item.equals("d") || item.equals("h")){
                 EquipableItem object = this.weapons.get(item);
                 player.items.add(object);
+                System.out.print("Player has");
                 for (EquipableItem holding : player.items){
-                    System.out.println("Player has a " + holding);
+                    System.out.print(" a " + holding);
                 }
-                System.out.print(player.items.size());
+                System.out.println();
             }
         }
         //if the character in that space is not a key in the dictionary of impassible characters, the player position is reset
@@ -96,9 +106,11 @@ public class Game
 		//--- Do whatever you do in a turn
 	}
 
-	private void onTouchMonster(String monster)
+	private void onTouchMonster(String key)
 	{
-        System.out.println("hit monster " + monster);
+        Monster monster = creatures.get(key);
+        System.out.println("Player hit " + monster);
+
 		//--- Who did you run into?
 
 		//--- Time to fight

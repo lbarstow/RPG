@@ -20,7 +20,7 @@ public class Player
 		super("player");
         this.gold = 0;
         isAlive = true;
-        this.items = new ArrayList<EquipableItem>();
+        this.items = new ArrayList<>();
 	}
 
     public void goldPickup()
