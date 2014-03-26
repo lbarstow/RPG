@@ -33,8 +33,8 @@ public class Game
 
         EquipableItem item = new EquipableItem("q", "sword");
         weapons.put("q", item);
-        item =  new EquipableItem("h", "helm" );
-        weapons.put("q", item);
+        item =  new EquipableItem("h", "helm");
+        weapons.put("h", item);
         item = new EquipableItem("d", "sheild");
         weapons.put("d", item);
 
@@ -69,9 +69,12 @@ public class Game
             map.pickUP(x, y);
             if (item.equals("g")){
                 player.goldPickup();
-            } else if (item.equals("r") || item.equals("q") || item.equals("d") || item.equals("h")){
+            } else if (item.equals("q") || item.equals("d") || item.equals("h")){
                 EquipableItem object = this.weapons.get(item);
                 player.items.add(object);
+                for (EquipableItem holding : player.items){
+                    System.out.println("Player has a " + holding);
+                }
                 System.out.print(player.items.size());
             }
         }
