@@ -12,8 +12,13 @@ public class Application
 		//--- Formally, it's called the Model
 		//--- The thing that draws the picture is called the View
 		//--- The thing that lets players select actions is the Controller
-        CombatForm woo = new CombatForm();
-        woo.setVisible(true);
+        //CombatForm woo = new CombatForm();
+        //woo.setVisible(true);
+        //CombatForm woo = new CombatForm();
+        //woo.setVisible(true);
+
+        CombatForm combo = new CombatForm();
+        combo.setVisible(true);
 
 		//Game theGame = new Game();
 
