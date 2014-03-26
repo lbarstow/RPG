@@ -13,8 +13,9 @@ public class Application
 		//--- The thing that draws the picture is called the View
 		//--- The thing that lets players select actions is the Controller
         CombatForm woo = new CombatForm();
+        woo.setVisible(true);
 
-		Game theGame = new Game();
+		//Game theGame = new Game();
 
 
 		// TODO: Load character screen, create/edit character
@@ -22,7 +23,7 @@ public class Application
 
 		//--- The map screen is a View of our game
 		//--- It's also our Controller when navigating the map
-		MainForm mapScreen = new MainForm(theGame);
-		mapScreen.setVisible(true);
+		//MainForm mapScreen = new MainForm(theGame);
+		//mapScreen.setVisible(true);
 	}
 }
