@@ -12,7 +12,7 @@ public class Player
     int gold;
     int damage;
     int health;
-    ArrayList<String> items;
+    ArrayList<EquipableItem> items;
     boolean isAlive;
 
 	public Player()
@@ -20,7 +20,7 @@ public class Player
 		super("player");
         this.gold = 0;
         isAlive = true;
-        this.items = new ArrayList<String>();
+        this.items = new ArrayList<EquipableItem>();
 	}
 
     public void goldPickup()

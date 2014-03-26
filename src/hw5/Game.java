@@ -1,6 +1,7 @@
 package hw5;
 
 import java.awt.*;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,6 +19,8 @@ public class Game
 	//---	each turn what they want to do
 	public List<Agent> agents = new LinkedList<Agent>();
 
+    public HashMap<String, EquipableItem> weapons = new HashMap<>();
+
 	public Game()
 	{
 		//--- Load a map
@@ -27,6 +30,13 @@ public class Game
 		player = new Player();
 		player.x = 1;
 		player.y = 1;
+
+        EquipableItem item = new EquipableItem("q", "sword");
+        weapons.put("q", item);
+        item =  new EquipableItem("h", "helm" );
+        weapons.put("q", item);
+        item = new EquipableItem("d", "sheild");
+        weapons.put("d", item);
 
 		//--- Add the player to the agents list. This list controls
 		agents.add(player);
@@ -60,7 +70,8 @@ public class Game
             if (item.equals("g")){
                 player.goldPickup();
             } else if (item.equals("r") || item.equals("q") || item.equals("d") || item.equals("h")){
-                player.items.add(item);
+                EquipableItem object = this.weapons.get(item);
+                player.items.add(object);
                 System.out.print(player.items.size());
             }
         }
