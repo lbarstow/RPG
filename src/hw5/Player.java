@@ -1,5 +1,7 @@
 package hw5;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author baylor
@@ -9,11 +11,13 @@ public class Player
 {
     int gold;
     int strength;
+    ArrayList<String> items;
 
 	public Player()
 	{
 		super("player");
         this.gold = 0;
+        this.items = new ArrayList<String>();
 	}
 
     public void goldPickup()

@@ -59,6 +59,8 @@ public class Game
             map.pickUP(x, y);
             if (item.equals("g")){
                 player.goldPickup();
+            } else if (item.equals("r") || item.equals("q") || item.equals("d") || item.equals("h")){
+                player.items.add(item);
             }
         }
         //if the character in that space is not a key in the dictionary of impassible characters, the player position is reset
