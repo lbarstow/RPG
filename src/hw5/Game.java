@@ -21,6 +21,7 @@ public class Game
 
     public HashMap<String, EquipableItem> weapons = new HashMap<>();
     public HashMap<String, Monster> creatures = new HashMap<>();
+    public HashMap<String, Helper> animals = new HashMap<>();
 
 	public Game()
 	{
@@ -46,6 +47,10 @@ public class Game
         monster = new Monster("Ogre", 1, 1);
         creatures.put("l", monster);
 
+        Helper beast = new Helper("Phoenix", 1, 1);
+        animals.put("s", beast);
+        beast = new Helper("Gnome", 1, 1);
+        animals.put("n", beast);
 
 		//--- Add the player to the agents list. This list controls
 		agents.add(player);
@@ -108,8 +113,14 @@ public class Game
 
 	private void onTouchMonster(String key)
 	{
-        Monster monster = creatures.get(key);
-        System.out.println("Player hit " + monster);
+        if (creatures.containsKey(key)){
+            Monster monster = creatures.get(key);
+            System.out.println("Player hit " + monster);
+        } else if(animals.containsKey(key)){
+            Helper helper = animals.get(key);
+            System.out.println("Player wants help from the " + helper + ".");
+        }
+
 
 		//--- Who did you run into?
 
