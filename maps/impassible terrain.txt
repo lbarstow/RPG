@@ -9,3 +9,4 @@ n , Gnome
 f , Firey
 e , eyeHands
 s , skeleton
+l , ogre.png
