@@ -6,8 +6,7 @@
 # You can also use this file to load images not used for terrain tiles
 
 # Actors (player, monsters, etc.)
-player , actor.png
-
+player , actor2.png
 
 # Items
 g , gold.png

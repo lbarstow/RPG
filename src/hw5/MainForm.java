@@ -174,7 +174,7 @@ public class MainForm extends javax.swing.JFrame
 	//<editor-fold defaultstate="collapsed" desc="drawing">
 	private void drawTerrain()
 	{
-		for (int y = 0; y < game.map.getHeight(); y++)
+        for (int y = 0; y < game.map.getHeight(); y++)
 		{
 			for (int x = 0; x< game.map.getWidth(); x++)
 			{

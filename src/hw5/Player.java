@@ -12,15 +12,19 @@ public class Player
     int gold;
     int damage;
     int health;
+    int maxHealth;
     ArrayList<EquipableItem> items;
     boolean isAlive;
 
-	public Player()
+	public Player(int damage, int maxHealth)
 	{
 		super("player");
+        this.maxHealth = maxHealth;
+        this.damage = damage;
+        this.health = this.maxHealth;
         this.gold = 0;
         isAlive = true;
-        this.items = new ArrayList<>();
+        this.items = new ArrayList<EquipableItem>();
 	}
 
     public void goldPickup()

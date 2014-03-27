@@ -6,128 +6,135 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- *
  * @author baylor
  */
-public class Game
-{
-	public Map map;
-	public Player player;	// change this to whatever subclass player is
+public class Game {
+    public Map map;
+    public Player player;    // change this to whatever subclass player is
 
-	//--- A list of all the agents in the game (player, NPCs, monsters, etc.)
-	//--- We need to know this so we know who to draw and so that we can ask
-	//---	each turn what they want to do
-	public List<Agent> agents = new LinkedList<Agent>();
+    //--- A list of all the agents in the game (player, NPCs, monsters, etc.)
+    //--- We need to know this so we know who to draw and so that we can ask
+    //---	each turn what they want to do
+    public List<Agent> agents = new LinkedList<Agent>();
 
-    public HashMap<String, EquipableItem> weapons = new HashMap<>();
-    public HashMap<String, Monster> creatures = new HashMap<>();
-    public HashMap<String, Helper> animals = new HashMap<>();
+    public HashMap<String, EquipableItem> weapons = new HashMap<String, EquipableItem>();
+    public HashMap<String, Monster> enemies = new HashMap<String, Monster>();
+    public HashMap<String, Helper> helpers = new HashMap<String, Helper>();
+    public boolean untouched = true;
 
-	public Game()
-	{
-		//--- Load a map
-		map = new Map("main");
+    public Game() {
+        //--- Load a map
+        map = new Map("main");
 
-		//--- Create a player, stick him in the top left corner
-		player = new Player();
-		player.x = 1;
-		player.y = 1;
+        //--- Create a player, stick him in the top left corner
+        player = new Player(1, 10);
+        player.x = 1;
+        player.y = 1;
 
         EquipableItem item = new EquipableItem("q", "sword");
         weapons.put("q", item);
-        item =  new EquipableItem("h", "helm");
+        item = new EquipableItem("h", "helm");
         weapons.put("h", item);
         item = new EquipableItem("d", "sheild");
         weapons.put("d", item);
 
-        Monster monster = new Monster("EyeMan", 1, 1);
-        creatures.put("e", monster);
-        monster = new Monster("Fire Monster", 1, 1);
-        creatures.put("f", monster);
-        monster = new Monster("Ogre", 1, 1);
-        creatures.put("l", monster);
+        Monster monster1 = new Monster("EyeMan", 3, 6, "eyeHandsPic.png");
+        enemies.put("e", monster1);
+        Monster monster2 = new Monster("Fire Monster", 2, 4, "fireyPic.png");
+        enemies.put("f", monster2);
+        Monster monster3 = new Monster("Ogre", 4, 8, "ogrePic.png");
+        enemies.put("l", monster3);
 
-        Helper beast = new Helper("Phoenix", 1, 1);
-        animals.put("s", beast);
-        beast = new Helper("Gnome", 1, 1);
-        animals.put("n", beast);
+        Helper beast1 = new Helper("Phoenix", 1, 1);
+        helpers.put("s", beast1);
+        Helper beast2 = new Helper("Gnome", 1, 1);
+        helpers.put("n", beast2);
 
-		//--- Add the player to the agents list. This list controls
-		agents.add(player);
-	}
+        //--- Add the player to the agents list. This list controls
+        agents.add(player);
+    }
 
-	public void movePlayer(char direction)
-	{
+    public void movePlayer(char direction) {
         int x = player.x;
         int y = player.y;
-		switch(direction)
-		{
-			case 'n':
-				y = player.y-1;
-				break;
-			case 's':
-				y = player.y+1;
-				break;
-			case 'e':
-				x = player.x+1;
-				break;
-			case 'w':
-				x = player.x-1;
-				break;
-		}
+        switch (direction) {
+            case 'n':
+                y = player.y - 1;
+                break;
+            case 's':
+                y = player.y + 1;
+                break;
+            case 'e':
+                x = player.x + 1;
+                break;
+            case 'w':
+                x = player.x - 1;
+                break;
+        }
         String newSpace = map.terrain[x][y];
         //gets character value in that spot on terrain map.
         //if player walks over an item, pick it up
         String item = map.items[x][y];
-        if (null != item){
+        if (null != item) {
             map.pickUP(x, y);
-            if (item.equals("g")){
+            if (item.equals("g")) {
                 player.goldPickup();
-            } else if (item.equals("q") || item.equals("d") || item.equals("h")){
+            } else if (item.equals("q") || item.equals("d") || item.equals("h")) {
                 EquipableItem object = this.weapons.get(item);
                 player.items.add(object);
                 System.out.print("Player has");
-                for (EquipableItem holding : player.items){
+                for (EquipableItem holding : player.items) {
                     System.out.print(" a " + holding);
                 }
                 System.out.println();
             }
         }
         //if the character in that space is not a key in the dictionary of impassible characters, the player position is reset
-        if (!map.passibility.containsKey(newSpace)){
+        if (!map.passibility.containsKey(newSpace)) {
             player.x = x;
             player.y = y;
-        } else if (map.passibility.get(newSpace)){
+        } else if (map.passibility.get(newSpace)) {
             onTouchMonster(newSpace);
         }
-	}
+    }
 
-	/**
-	 * Run a turn. Did the player run into an enemy? An item?
-	 * What do the other agents (NPCs, monsters, etc.) want to do?
-	 */
-	private void nextTurn()
-	{
-		//--- Do whatever you do in a turn
-	}
+    /**
+     * Run a turn. Did the player run into an enemy? An item?
+     * What do the other agents (NPCs, monsters, etc.) want to do?
+     */
+    private void nextTurn() {
+        //--- Do whatever you do in a turn
+    }
 
-	private void onTouchMonster(String key)
-	{
-        if (creatures.containsKey(key)){
-            Monster monster = creatures.get(key);
-            System.out.println("Player hit " + monster);
-        } else if(animals.containsKey(key)){
-            Helper helper = animals.get(key);
-            System.out.println("Player wants help from the " + helper + ".");
+    private void onTouchMonster(String key) {
+        if (enemies.containsKey(key) && untouched) {
+            untouched = false;
+            Monster monster = enemies.get(key);
+            CombatForm combo = new CombatForm(monster, player, this);
+            combo.setVisible(true);
+        } else if (helpers.containsKey(key) && untouched) {
+            untouched = false;
+            if(key.equals("n")){
+            InteractionForm inter = new InteractionForm("Protein Powder", "Steroids",
+                    "Protein Powder increased you maximum health!",
+                    "The Steroids increased you maximum damage!", "gnomePic.png", this, player);
+            inter.setVisible(true);
+            }
+            if(key.equals("s")){
+                InteractionForm inter = new InteractionForm("Heal", "filler", "You healed to maximum health!",
+                        "filler", "pheonixPic.png", this, player);
+                inter.setVisible(true);
+            }
+
         }
 
 
-		//--- Who did you run into?
+        //--- Who did you run into?
 
-		//--- Time to fight
+        //--- Time to fight
 
 //		form.game = this;	// let them know about us so they can talk to us
 //		form.enemies = ???;
 //		form.run();
-	}
+    }
 }
