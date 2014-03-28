@@ -103,7 +103,6 @@ public class CombatForm extends JFrame implements ActionListener {
         if (player.health <= 0) {
             text.setText("YOU DIED! OH NO!");
             timer.start();
-            bool = false;
         }
         if (monster.endurance <= 0) {
             text.setText("YOU WON! YAY!");
