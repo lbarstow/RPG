@@ -16,18 +16,28 @@ public class Minotaur extends Agent{
     }
 
     Random selector = new Random();
-    List<Character> directionList = new ArrayList<Character>();
+    List<Character> upDownDirectionList = new ArrayList<Character>();
+    List<Character> rightLeftDirectionList = new ArrayList<Character>();
 
 
     @Override
     public void think()
     {
-        directionList.add('n');
-        directionList.add('s');
-        directionList.add('e');
-        directionList.add('w');
-        int selectorInt = selector.nextInt(4);
-        char direction = directionList.get(selectorInt);
+        upDownDirectionList.add('n');
+        upDownDirectionList.add('s');
+        rightLeftDirectionList.add('e');
+        rightLeftDirectionList.add('w');
+        int selectorInt = selector.nextInt(2);
+        char direction = upDownDirectionList.get(selectorInt);
+        moveMinotaur(direction);
+        selectorInt = selector.nextInt(2);
+        direction = rightLeftDirectionList.get(selectorInt);
+        moveMinotaur(direction);
+        selectorInt = selector.nextInt(2);
+        direction = upDownDirectionList.get(selectorInt);
+        moveMinotaur(direction);
+        selectorInt = selector.nextInt(2);
+        direction = rightLeftDirectionList.get(selectorInt);
         moveMinotaur(direction);
     }
 

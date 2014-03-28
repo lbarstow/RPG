@@ -28,7 +28,7 @@ public class Game {
         map = new Map("main");
 
         //--- Create a player, stick him in the top left corner
-        player = new Player(1, 10);
+        player = new Player(8, 100);
         player.x = 1;
         player.y = 1;
         minotaur = new Minotaur(map);
@@ -109,6 +109,7 @@ public class Game {
             onTouchMonster(newSpace);
         }
         hitMinotaur();
+        minotaur.think();
     }
 
     /**
