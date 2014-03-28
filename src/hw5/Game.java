@@ -114,8 +114,7 @@ public class Game {
             combo.setVisible(true);
         } else if (helpers.containsKey(key) && untouched) {
             untouched = false;
-            Helper helper = helpers.get(key);
-        /*    if(key.equals("n")){
+            if(key.equals("n")){
             InteractionForm inter = new InteractionForm("Protein Powder", "Steroids",
                     "Protein Powder increased you maximum health!",
                     "The Steroids increased you maximum damage!", "gnomePic.png", this, player);
@@ -126,9 +125,6 @@ public class Game {
                         "filler", "pheonixPic.png", this, player);
                 inter.setVisible(true);
             }
-*/
-            InteractionForm inter = new InteractionForm(helper,this, player);
-            inter.setVisible(true);
         }
 
 
