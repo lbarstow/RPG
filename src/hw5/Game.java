@@ -109,6 +109,7 @@ public class Game {
             onTouchMonster(newSpace);
         }
         hitMinotaur();
+        minotaur.think();
     }
 
     /**
