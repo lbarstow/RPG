@@ -12,8 +12,8 @@ import java.awt.image.BufferedImage;
 public class CombatForm extends JFrame implements ActionListener {
 
     private JButton fastAttackButton;
+    private JButton runAwayButton;
     private JButton heavyAttackButton;
-    private JButton mediumAttackButton;
     private JLabel text;
     private JLabel playerHealth;
     private JLabel monsterHealth;
@@ -34,10 +34,10 @@ public class CombatForm extends JFrame implements ActionListener {
         buttonPanel = new JPanel();
         fastAttackButton = new JButton("Fast Attack");
         fastAttackButton.addActionListener(this);
-        mediumAttackButton = new JButton("Medium Attack");
-        mediumAttackButton.addActionListener(this);
-        heavyAttackButton = new JButton("Run Away");
+        heavyAttackButton = new JButton("Medium Attack");
         heavyAttackButton.addActionListener(this);
+        runAwayButton = new JButton("Run Away");
+        runAwayButton.addActionListener(this);
         text = new JLabel();
         this.monster = monster;
         this.player = player;
@@ -45,7 +45,7 @@ public class CombatForm extends JFrame implements ActionListener {
         image = new JLabel(image2);
         monsterHealth = new JLabel();
         playerHealth = new JLabel();
-        monsterHealth.setText("The monster's current health is: " + monster.endurance + "/" );
+        monsterHealth.setText("The monster's current health is: " + monster.endurance + "/" + monster.endurance);
         playerHealth.setText("Your current health is: " + player.health + "/" + player.maxHealth);
 
         this.add(panel);
@@ -55,8 +55,8 @@ public class CombatForm extends JFrame implements ActionListener {
         panel.add(playerHealth);
         panel.add(buttonPanel);
         buttonPanel.add(fastAttackButton);
-        buttonPanel.add(mediumAttackButton);
         buttonPanel.add(heavyAttackButton);
+        buttonPanel.add(runAwayButton);
 
         if (!combat){
             game.untouched = true;
@@ -71,11 +71,11 @@ public class CombatForm extends JFrame implements ActionListener {
         if (event.getSource() == fastAttackButton) {
             text.setText("You made a fast attack!");
         }
-        if (event.getSource() == mediumAttackButton) {
+        if (event.getSource() == heavyAttackButton) {
             text.setText("You made a medium attack!");
         }
-        if (event.getSource() == heavyAttackButton) {
-            text.setText("You made a heavy attack!");
+        if (event.getSource() == runAwayButton) {
+            text.setText("You ran away!");
         }
         if(event.getSource() == timer)
         {

@@ -11,6 +11,7 @@ import java.util.List;
 public class Game {
     public Map map;
     public Player player;    // change this to whatever subclass player is
+    public Minotaur minotaur;
 
     //--- A list of all the agents in the game (player, NPCs, monsters, etc.)
     //--- We need to know this so we know who to draw and so that we can ask
@@ -30,6 +31,9 @@ public class Game {
         player = new Player(1, 10);
         player.x = 1;
         player.y = 1;
+        minotaur = new Minotaur();
+        minotaur.x = 26;
+        minotaur.y = 16;
 
         EquipableItem item = new EquipableItem("q", "sword");
         weapons.put("q", item);
@@ -134,7 +138,7 @@ public class Game {
                     //player.y + " Minotaur x: " + minotaur.x + " Minotaur y: " + minotaur.y);
             if(player.x == minotaur.x && player.y == minotaur.y){
                 //System.out.println("HIT THE MINOTAUR");
-                Monster minotaurMonster = new Monster("Minotaur", 30, 140, "minotaurPic.png");
+                Monster minotaurMonster = new Monster("Minotaur", 30, 140, "minotaurPic.png", 5);
                 CombatForm combo = new CombatForm(minotaurMonster, player, this);
                 combo.setVisible(true);
             }
