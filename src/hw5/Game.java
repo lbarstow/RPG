@@ -84,14 +84,21 @@ public class Game {
             map.pickUP(x, y);
             if (item.equals("g")) {
                 player.goldPickup();
-            } else if (item.equals("q") || item.equals("d") || item.equals("h")) {
+            } else if (item.equals("q")) {
                 EquipableItem object = this.weapons.get(item);
                 player.items.add(object);
-                System.out.print("Player has");
-                for (EquipableItem holding : player.items) {
-                    System.out.print(" a " + holding);
-                }
-                System.out.println();
+                player.damage += 5;
+            } else if (item.equals("d")){
+                EquipableItem object = this.weapons.get(item);
+                player.items.add(object);
+                player.maxHealth += 20;
+                player.health += 20;
+            } else if (item.equals("h")){
+                EquipableItem object = this.weapons.get(item);
+                player.items.add(object);
+                player.maxHealth += 10;
+                player.health += 10;
+
             }
         }
         //if the character in that space is not a key in the dictionary of impassible characters, the player position is reset
