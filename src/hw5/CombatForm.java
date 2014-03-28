@@ -34,7 +34,7 @@ public class CombatForm extends JFrame implements ActionListener {
         buttonPanel = new JPanel();
         fastAttackButton = new JButton("Fast Attack");
         fastAttackButton.addActionListener(this);
-        heavyAttackButton = new JButton("Medium Attack");
+        heavyAttackButton = new JButton("Heavy Attack");
         heavyAttackButton.addActionListener(this);
         runAwayButton = new JButton("Run Away");
         runAwayButton.addActionListener(this);
@@ -72,7 +72,7 @@ public class CombatForm extends JFrame implements ActionListener {
             text.setText("You made a fast attack!");
         }
         if (event.getSource() == heavyAttackButton) {
-            text.setText("You made a medium attack!");
+            text.setText("You made a heavy attack!");
         }
         if (event.getSource() == runAwayButton) {
             text.setText("You ran away!");
