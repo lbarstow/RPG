@@ -76,9 +76,11 @@ public class CombatForm extends JFrame implements ActionListener {
         }
         if (event.getSource() == runAwayButton) {
             text.setText("You ran away!");
+            timer.start();
         }
         if(event.getSource() == timer)
         {
+            game.untouched = true;
             timer.stop();
             this.setVisible(false);
         }
