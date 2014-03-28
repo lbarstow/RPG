@@ -60,6 +60,7 @@ public class Game {
     }
 
     public void movePlayer(char direction) {
+        checkDead();
         int x = player.x;
         int y = player.y;
         switch (direction) {
@@ -151,6 +152,12 @@ public class Game {
                 combo.setVisible(true);
             }
         }
+
+    private void checkDead(){
+        if(player.health <= 0){
+            System.exit(0);
+        }
+    }
 
 
         //--- Who did you run into?
