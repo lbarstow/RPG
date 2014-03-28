@@ -56,6 +56,7 @@ public class Game {
 
         //--- Add the player to the agents list. This list controls
         agents.add(player);
+        agents.add(minotaur);
     }
 
     public void movePlayer(char direction) {
@@ -106,6 +107,7 @@ public class Game {
         } else if (map.passibility.get(newSpace)) {
             onTouchMonster(newSpace);
         }
+        hitMinotaur();
     }
 
     /**
@@ -136,6 +138,17 @@ public class Game {
                 inter.setVisible(true);
             }
         }
+    }
+        private void hitMinotaur(){
+            //System.out.println("Player x: " + player.x + " Player y: " +
+                    //player.y + " Minotaur x: " + minotaur.x + " Minotaur y: " + minotaur.y);
+            if(player.x == minotaur.x && player.y == minotaur.y){
+                //System.out.println("HIT THE MINOTAUR");
+                Monster minotaurMonster = new Monster("Minotaur", 30, 140, "minotaurPic.png");
+                CombatForm combo = new CombatForm(minotaurMonster, player, this);
+                combo.setVisible(true);
+            }
+        }
 
 
         //--- Who did you run into?
@@ -146,4 +159,4 @@ public class Game {
 //		form.enemies = ???;
 //		form.run();
     }
-}
+

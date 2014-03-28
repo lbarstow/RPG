@@ -120,7 +120,7 @@ public class MainForm extends javax.swing.JFrame
 					resizeImages();
 					repaint();
 					return true;
-			}
+            }
 		}
 		//--- This is stupid but it's needed to keep hot keys like the
 		//---	+ button from showing up in a text box
