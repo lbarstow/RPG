@@ -128,6 +128,11 @@ public class CombatForm extends JFrame implements ActionListener {
             monster.endurance -= force-2;
             player.health -= hurt;
         }
+    }
+
+    public void flee() {
+
+
 
     }
 }
