@@ -28,6 +28,7 @@ public class InteractionForm extends JFrame implements ActionListener {
     private JLabel playerHealth;
     private JLabel playerMaxHealth;
     private JLabel playerDamage;
+    private JLabel playerGold;
 
     public InteractionForm(String string1, String string2, String action1, String action2, String imageName, Game game, Player player) {
         setSize(400, 400);
@@ -50,9 +51,11 @@ public class InteractionForm extends JFrame implements ActionListener {
         playerDamage = new JLabel();
         playerMaxHealth = new JLabel();
         playerHealth = new JLabel();
+        playerGold = new JLabel();
         playerDamage.setText("Your Maximum Damage is: "+player.damage);
         playerHealth.setText("Your current Health is: "+player.health);
         playerMaxHealth.setText("Your Maximum Health is: "+player.maxHealth);
+        playerGold.setText("You have " + player.gold + " Gold.");
 
         this.add(panel);
         panel.add(image);
@@ -65,6 +68,7 @@ public class InteractionForm extends JFrame implements ActionListener {
             panel.add(playerHealth);
             text.setText("I'll heal you completely 2 gold!");
         }
+        panel.add(playerGold);
         panel.add(buttonPanel);
         buttonPanel.add(firstButton);
         if (imageName.equalsIgnoreCase("gnomePic.png")) {
@@ -82,8 +86,14 @@ public class InteractionForm extends JFrame implements ActionListener {
                 text.setText(action1);
                 if (imageName.equalsIgnoreCase("gnomePic.png")) {
                    player.maxHealth += 2;
+                   player.gold -= 2;
+                   playerMaxHealth.setText("Your Maximum Health is: "+player.maxHealth);
+                   playerGold.setText("You have " + player.gold +" Gold.");
                 } else {
                    player.health = player.maxHealth;
+                   player.gold -= 2;
+                   playerHealth.setText("Your current Health is: "+player.health);
+                   playerGold.setText("You have " + player.gold +" Gold.");
                 }
             } else {
                 text.setText("You do not have enough gold!");
@@ -93,6 +103,9 @@ public class InteractionForm extends JFrame implements ActionListener {
             if (player.gold >= 2) {
                 text.setText(action2);
                 player.damage += 1;
+                player.gold -= 2;
+                playerDamage.setText("Your Maximum Damage is: "+ player.damage);
+                playerGold.setText("You have " + player.gold +" Gold.");
             } else {
                 text.setText("You do not have enough gold!");
             }
