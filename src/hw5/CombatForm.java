@@ -36,7 +36,7 @@ public class CombatForm extends JFrame implements ActionListener {
         fastAttackButton.addActionListener(this);
         mediumAttackButton = new JButton("Medium Attack");
         mediumAttackButton.addActionListener(this);
-        heavyAttackButton = new JButton("Heavy Attack");
+        heavyAttackButton = new JButton("Run Away");
         heavyAttackButton.addActionListener(this);
         text = new JLabel();
         this.monster = monster;
@@ -98,5 +98,9 @@ public class CombatForm extends JFrame implements ActionListener {
             bool = false;
         }
         combat = bool;
+    }
+
+    public void speed(){
+        int force = player.damage;
     }
 }
