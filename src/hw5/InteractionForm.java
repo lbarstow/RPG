@@ -1,10 +1,6 @@
 package hw5;
 
-import acm.graphics.GCanvas;
-import acm.graphics.GImage;
-
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
