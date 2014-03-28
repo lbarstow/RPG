@@ -149,7 +149,7 @@ public class Game {
             if(player.x == minotaur.x && player.y == minotaur.y){
                 //System.out.println("HIT THE MINOTAUR");
                 Monster minotaurMonster = new Monster("Minotaur", 30, 140, "minotaurPic.png", 5);
-                CombatForm combo = new CombatForm(minotaurMonster, player, this, 0, 0);
+                CombatForm combo = new CombatForm(minotaurMonster, player, this, minotaur.x, minotaur.y);
                 combo.setVisible(true);
             }
         }
