@@ -32,9 +32,9 @@ public class CombatForm extends JFrame implements ActionListener {
         this.game = game;
         panel = new JPanel();
         buttonPanel = new JPanel();
-        fastAttackButton = new JButton("Speed Attack");
+        fastAttackButton = new JButton("Attack With Speed");
         fastAttackButton.addActionListener(this);
-        heavyAttackButton = new JButton("Heavy Attack");
+        heavyAttackButton = new JButton("Attack With Force");
         heavyAttackButton.addActionListener(this);
         runAwayButton = new JButton("Run Away");
         runAwayButton.addActionListener(this);
@@ -74,6 +74,7 @@ public class CombatForm extends JFrame implements ActionListener {
         }
         if (event.getSource() == heavyAttackButton) {
             text.setText("You made a heavy attack!");
+            force();
         }
         if (event.getSource() == runAwayButton) {
             text.setText("You ran away!");
@@ -85,6 +86,8 @@ public class CombatForm extends JFrame implements ActionListener {
             timer.stop();
             this.setVisible(false);
         }
+        monsterHealth.setText("The monster's current health is: " + monster.endurance + "/" + monster.fierceness);
+        playerHealth.setText("Your current health is: " + player.health + "/" + player.maxHealth);
         combatRound();
     }
 
@@ -108,7 +111,23 @@ public class CombatForm extends JFrame implements ActionListener {
         int hurt = monster.attackForce;
         if (monster.mName.equals("Ogre") || monster.mName.equals("EyeMan")){
             monster.endurance -= force;
-            player.health -= hurt/2;
+            player.health -= hurt-2;
+        } else {
+            monster.endurance -= force-2;
+            player.health -= hurt;
         }
+    }
+
+    public void force() {
+        int force = player.damage;
+        int hurt = monster.attackForce;
+        if (monster.mName.equals("Fire Monster")){
+            monster.endurance -= force;
+            player.health -= hurt-2;
+        } else {
+            monster.endurance -= force-2;
+            player.health -= hurt;
+        }
+
     }
 }
