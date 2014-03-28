@@ -38,11 +38,11 @@ public class Game {
         item = new EquipableItem("d", "sheild");
         weapons.put("d", item);
 
-        Monster monster1 = new Monster("EyeMan", 11, 72, "eyeHandsPic.png");
+        Monster monster1 = new Monster("EyeMan", 11, 72, "eyeHandsPic.png", 72);
         enemies.put("e", monster1);
-        Monster monster2 = new Monster("Fire Monster", 11, 54, "fireyPic.png");
+        Monster monster2 = new Monster("Fire Monster", 11, 54, "fireyPic.png", 54);
         enemies.put("f", monster2);
-        Monster monster3 = new Monster("Ogre", 15, 94, "ogrePic.png");
+        Monster monster3 = new Monster("Ogre", 15, 94, "ogrePic.png", 94);
         enemies.put("l", monster3);
 
         Helper beast1 = new Helper("Phoenix", 1, 1);
