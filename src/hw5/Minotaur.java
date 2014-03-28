@@ -33,6 +33,12 @@ public class Minotaur extends Agent{
         selectorInt = selector.nextInt(2);
         direction = rightLeftDirectionList.get(selectorInt);
         moveMinotaur(direction);
+        selectorInt = selector.nextInt(2);
+        direction = upDownDirectionList.get(selectorInt);
+        moveMinotaur(direction);
+        selectorInt = selector.nextInt(2);
+        direction = rightLeftDirectionList.get(selectorInt);
+        moveMinotaur(direction);
     }
 
     public void moveMinotaur(char direction) {
