@@ -28,7 +28,6 @@ public class CombatForm extends JFrame implements ActionListener {
 
 
     public CombatForm(Monster monster, Player player, Game game) {
-        System.out.println("created new combat form");
         setSize(400, 400);
         this.game = game;
         panel = new JPanel();
@@ -87,7 +86,6 @@ public class CombatForm extends JFrame implements ActionListener {
     }
 
     private void combatRound() {
-        System.out.println("combat round called");
         boolean bool = true;
         if (player.health <= 0) {
             text.setText("YOU DIED! OH NO!");
