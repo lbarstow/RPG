@@ -36,7 +36,7 @@ public class CombatForm extends JFrame implements ActionListener {
         fastAttackButton.addActionListener(this);
         mediumAttackButton = new JButton("Medium Attack");
         mediumAttackButton.addActionListener(this);
-        heavyAttackButton = new JButton("Heavy Attack");
+        heavyAttackButton = new JButton("Run Away");
         heavyAttackButton.addActionListener(this);
         text = new JLabel();
         this.monster = monster;
@@ -45,8 +45,8 @@ public class CombatForm extends JFrame implements ActionListener {
         image = new JLabel(image2);
         monsterHealth = new JLabel();
         playerHealth = new JLabel();
-        monsterHealth.setText("The monster's current health is: " + monster.endurance);
-        playerHealth.setText("Your current health is: " + player.health);
+        monsterHealth.setText("The monster's current health is: " + monster.endurance + "/" );
+        playerHealth.setText("Your current health is: " + player.health + "/" + player.maxHealth);
 
         this.add(panel);
         panel.add(image);
@@ -98,5 +98,10 @@ public class CombatForm extends JFrame implements ActionListener {
             bool = false;
         }
         combat = bool;
+    }
+
+    public void speed(){
+        int force = player.damage;
+        int hurt = monster.attackForce;
     }
 }

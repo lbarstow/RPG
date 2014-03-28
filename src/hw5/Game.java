@@ -11,7 +11,6 @@ import java.util.List;
 public class Game {
     public Map map;
     public Player player;    // change this to whatever subclass player is
-    public Minotaur minotaur;
 
     //--- A list of all the agents in the game (player, NPCs, monsters, etc.)
     //--- We need to know this so we know who to draw and so that we can ask
@@ -28,12 +27,9 @@ public class Game {
         map = new Map("main");
 
         //--- Create a player, stick him in the top left corner
-        player = new Player(8, 100);
+        player = new Player(1, 10);
         player.x = 1;
         player.y = 1;
-        minotaur = new Minotaur();
-        minotaur.x = 26;
-        minotaur.y = 16;
 
         EquipableItem item = new EquipableItem("q", "sword");
         weapons.put("q", item);
@@ -42,11 +38,11 @@ public class Game {
         item = new EquipableItem("d", "sheild");
         weapons.put("d", item);
 
-        Monster monster1 = new Monster("EyeMan", 11, 72, "eyeHandsPic.png");
+        Monster monster1 = new Monster("EyeMan", 11, 72, "eyeHandsPic.png", 72);
         enemies.put("e", monster1);
-        Monster monster2 = new Monster("Fire Monster", 11, 54, "fireyPic.png");
+        Monster monster2 = new Monster("Fire Monster", 11, 54, "fireyPic.png", 54);
         enemies.put("f", monster2);
-        Monster monster3 = new Monster("Ogre", 15, 94, "ogrePic.png");
+        Monster monster3 = new Monster("Ogre", 15, 94, "ogrePic.png", 94);
         enemies.put("l", monster3);
 
         Helper beast1 = new Helper("Phoenix", 1, 1);
@@ -84,20 +80,14 @@ public class Game {
             map.pickUP(x, y);
             if (item.equals("g")) {
                 player.goldPickup();
-            } else if (item.equals("q")) {
+            } else if (item.equals("q") || item.equals("d") || item.equals("h")) {
                 EquipableItem object = this.weapons.get(item);
                 player.items.add(object);
-                player.damage += 5;
-            } else if (item.equals("d")){
-                EquipableItem object = this.weapons.get(item);
-                player.items.add(object);
-                player.maxHealth += 20;
-                player.health += 20;
-            } else if (item.equals("h")){
-                EquipableItem object = this.weapons.get(item);
-                player.items.add(object);
-                player.maxHealth += 10;
-                player.health += 10;
+                System.out.print("Player has");
+                for (EquipableItem holding : player.items) {
+                    System.out.print(" a " + holding);
+                }
+                System.out.println();
             }
         }
         //if the character in that space is not a key in the dictionary of impassible characters, the player position is reset
