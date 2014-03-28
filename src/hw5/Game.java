@@ -23,6 +23,7 @@ public class Game {
     public HashMap<String, Helper> helpers = new HashMap<String, Helper>();
     public boolean untouched = true;
 
+
     public Game() {
         //--- Load a map
         map = new Map("main");
@@ -106,7 +107,7 @@ public class Game {
             player.x = x;
             player.y = y;
         } else if (map.passibility.get(newSpace)) {
-            onTouchMonster(newSpace);
+            onTouchMonster(newSpace, x, y);
         }
         hitMinotaur();
         minotaur.think();
@@ -120,11 +121,11 @@ public class Game {
         //--- Do whatever you do in a turn
     }
 
-    private void onTouchMonster(String key) {
+    private void onTouchMonster(String key, int x, int y) {
         if (enemies.containsKey(key) && untouched) {
             untouched = false;
             Monster monster = enemies.get(key);
-            CombatForm combo = new CombatForm(monster, player, this);
+            CombatForm combo = new CombatForm(monster, player, this, x, y);
             combo.setVisible(true);
         } else if (helpers.containsKey(key) && untouched) {
             untouched = false;
@@ -147,7 +148,7 @@ public class Game {
             if(player.x == minotaur.x && player.y == minotaur.y){
                 //System.out.println("HIT THE MINOTAUR");
                 Monster minotaurMonster = new Monster("Minotaur", 30, 140, "minotaurPic.png", 5);
-                CombatForm combo = new CombatForm(minotaurMonster, player, this);
+                CombatForm combo = new CombatForm(minotaurMonster, player, this, 0, 0);
                 combo.setVisible(true);
             }
         }

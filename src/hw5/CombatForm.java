@@ -22,12 +22,16 @@ public class CombatForm extends JFrame implements ActionListener {
     private Monster monster;
     private Player player;
     private JLabel image;
-    private Game game;
+    public Game game;
     private boolean combat;
+    private int x;
+    private int y;
 
 
 
-    public CombatForm(Monster monster, Player player, Game game) {
+    public CombatForm(Monster monster, Player player, Game game, int x, int y) {
+        this.x =x;
+        this.y = y;
         setSize(400, 400);
         this.game = game;
         panel = new JPanel();
@@ -103,6 +107,7 @@ public class CombatForm extends JFrame implements ActionListener {
         }
         if (monster.endurance <= 0) {
             text.setText("YOU WON! YAY!");
+            game.map.kill(x, y);
             timer.start();
             bool = false;
         }

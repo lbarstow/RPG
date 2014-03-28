@@ -78,6 +78,10 @@ public class Map
         items[x][y] = null;
     }
 
+    public void kill(int x, int y){
+        terrain[x][y] = ".";
+    }
+
 	//<editor-fold defaultstate="collapsed" desc="Object overrides">
 	@Override
 	public String toString()
