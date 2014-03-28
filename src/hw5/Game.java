@@ -110,7 +110,9 @@ public class Game {
         if (enemies.containsKey(key) && untouched) {
             untouched = false;
             Monster monster = enemies.get(key);
+            System.out.println(monster);
             CombatForm combo = new CombatForm(monster, player, this);
+            System.out.println("created combat form");
             combo.setVisible(true);
         } else if (helpers.containsKey(key) && untouched) {
             untouched = false;

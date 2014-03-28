@@ -23,10 +23,12 @@ public class CombatForm extends JFrame implements ActionListener {
     private Player player;
     private JLabel image;
     private Game game;
+    private boolean combat;
 
 
 
     public CombatForm(Monster monster, Player player, Game game) {
+        System.out.println("created new combat form");
         setSize(400, 400);
         this.game = game;
         panel = new JPanel();
@@ -57,12 +59,10 @@ public class CombatForm extends JFrame implements ActionListener {
         buttonPanel.add(mediumAttackButton);
         buttonPanel.add(heavyAttackButton);
 
-        boolean combat = true;
-        while(combat){
-            combat = combatRound();
+        if (!combat){
+            game.untouched = true;
+            this.setVisible(false);
         }
-        game.untouched = true;
-        this.setVisible(false);
     }
 
     Timer timer = new Timer(2000,this);
@@ -83,9 +83,11 @@ public class CombatForm extends JFrame implements ActionListener {
             timer.stop();
             this.setVisible(false);
         }
+        combatRound();
     }
 
-    private boolean combatRound() {
+    private void combatRound() {
+        System.out.println("combat round called");
         boolean bool = true;
         if (player.health <= 0) {
             text.setText("YOU DIED! OH NO!");
@@ -97,6 +99,6 @@ public class CombatForm extends JFrame implements ActionListener {
             timer.start();
             bool = false;
         }
-        return bool;
+        combat = bool;
     }
 }
