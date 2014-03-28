@@ -45,8 +45,8 @@ public class CombatForm extends JFrame implements ActionListener {
         image = new JLabel(image2);
         monsterHealth = new JLabel();
         playerHealth = new JLabel();
-        monsterHealth.setText("The monster's current health is: " + monster.endurance);
-        playerHealth.setText("Your current health is: " + player.health);
+        monsterHealth.setText("The monster's current health is: " + monster.endurance + "/" + monster.fierceness);
+        playerHealth.setText("Your current health is: " + player.health + "/" + player.maxHealth);
 
         this.add(panel);
         panel.add(image);
