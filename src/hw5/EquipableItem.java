@@ -7,8 +7,6 @@ package hw5;
 public class EquipableItem
 {
 	public String id, description;
-	public int damageModifier;
-	public int healthModifier;
 
 	public EquipableItem(String id, String description)
 	{

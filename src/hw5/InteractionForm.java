@@ -85,7 +85,8 @@ public class InteractionForm extends JFrame implements ActionListener {
             if (player.gold >= 2) {
                 text.setText(action1);
                 if (imageName.equalsIgnoreCase("gnomePic.png")) {
-                   player.maxHealth += 2;
+                   player.maxHealth += 10;
+                   player.health += 10;
                    player.gold -= 2;
                    playerMaxHealth.setText("Your Maximum Health is: "+player.maxHealth);
                    playerGold.setText("You have " + player.gold +" Gold.");
@@ -102,7 +103,7 @@ public class InteractionForm extends JFrame implements ActionListener {
         if (event.getSource() == secondButton) {
             if (player.gold >= 2) {
                 text.setText(action2);
-                player.damage += 1;
+                player.damage += 2;
                 player.gold -= 2;
                 playerDamage.setText("Your Maximum Damage is: "+ player.damage);
                 playerGold.setText("You have " + player.gold +" Gold.");

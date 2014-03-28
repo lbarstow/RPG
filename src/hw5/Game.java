@@ -27,7 +27,7 @@ public class Game {
         map = new Map("main");
 
         //--- Create a player, stick him in the top left corner
-        player = new Player(1, 10);
+        player = new Player(8, 100);
         player.x = 1;
         player.y = 1;
 
@@ -38,11 +38,11 @@ public class Game {
         item = new EquipableItem("d", "sheild");
         weapons.put("d", item);
 
-        Monster monster1 = new Monster("EyeMan", 3, 6, "eyeHandsPic.png");
+        Monster monster1 = new Monster("EyeMan", 11, 72, "eyeHandsPic.png");
         enemies.put("e", monster1);
-        Monster monster2 = new Monster("Fire Monster", 2, 4, "fireyPic.png");
+        Monster monster2 = new Monster("Fire Monster", 11, 54, "fireyPic.png");
         enemies.put("f", monster2);
-        Monster monster3 = new Monster("Ogre", 4, 8, "ogrePic.png");
+        Monster monster3 = new Monster("Ogre", 15, 94, "ogrePic.png");
         enemies.put("l", monster3);
 
         Helper beast1 = new Helper("Phoenix", 1, 1);
@@ -79,14 +79,20 @@ public class Game {
             map.pickUP(x, y);
             if (item.equals("g")) {
                 player.goldPickup();
-            } else if (item.equals("q") || item.equals("d") || item.equals("h")) {
+            } else if (item.equals("q")) {
                 EquipableItem object = this.weapons.get(item);
                 player.items.add(object);
-                System.out.print("Player has");
-                for (EquipableItem holding : player.items) {
-                    System.out.print(" a " + holding);
-                }
-                System.out.println();
+                player.damage += 5;
+            } else if (item.equals("d")){
+                EquipableItem object = this.weapons.get(item);
+                player.items.add(object);
+                player.maxHealth += 20;
+                player.health += 20;
+            } else if (item.equals("h")){
+                EquipableItem object = this.weapons.get(item);
+                player.items.add(object);
+                player.maxHealth += 10;
+                player.health += 10;
             }
         }
         //if the character in that space is not a key in the dictionary of impassible characters, the player position is reset
