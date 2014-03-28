@@ -32,7 +32,7 @@ public class CombatForm extends JFrame implements ActionListener {
         this.game = game;
         panel = new JPanel();
         buttonPanel = new JPanel();
-        fastAttackButton = new JButton("Fast Attack");
+        fastAttackButton = new JButton("Speed Attack");
         fastAttackButton.addActionListener(this);
         heavyAttackButton = new JButton("Heavy Attack");
         heavyAttackButton.addActionListener(this);
@@ -45,7 +45,7 @@ public class CombatForm extends JFrame implements ActionListener {
         image = new JLabel(image2);
         monsterHealth = new JLabel();
         playerHealth = new JLabel();
-        monsterHealth.setText("The monster's current health is: " + monster.endurance + "/" + monster.endurance);
+        monsterHealth.setText("The monster's current health is: " + monster.endurance + "/" + monster.fierceness);
         playerHealth.setText("Your current health is: " + player.health + "/" + player.maxHealth);
 
         this.add(panel);
@@ -58,10 +58,10 @@ public class CombatForm extends JFrame implements ActionListener {
         buttonPanel.add(heavyAttackButton);
         buttonPanel.add(runAwayButton);
 
-        //if (!combat){
+        if (!combat){
            // game.untouched = true;
            // this.setVisible(false);
-        //}
+        }
     }
 
     Timer timer = new Timer(2000,this);
@@ -70,6 +70,7 @@ public class CombatForm extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         if (event.getSource() == fastAttackButton) {
             text.setText("You made a fast attack!");
+            speed();
         }
         if (event.getSource() == heavyAttackButton) {
             text.setText("You made a heavy attack!");
@@ -84,7 +85,7 @@ public class CombatForm extends JFrame implements ActionListener {
             timer.stop();
             this.setVisible(false);
         }
-        //combatRound();
+        combatRound();
     }
 
     private void combatRound() {
@@ -105,7 +106,9 @@ public class CombatForm extends JFrame implements ActionListener {
     public void speed(){
         int force = player.damage;
         int hurt = monster.attackForce;
-
-
+        if (monster.mName.equals("Ogre") || monster.mName.equals("EyeMan")){
+            monster.endurance -= force;
+            player.health -= hurt/2;
+        }
     }
 }
