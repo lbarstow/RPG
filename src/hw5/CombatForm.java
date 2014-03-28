@@ -61,11 +61,6 @@ public class CombatForm extends JFrame implements ActionListener {
         buttonPanel.add(fastAttackButton);
         buttonPanel.add(heavyAttackButton);
         buttonPanel.add(runAwayButton);
-
-        if (!combat){
-           // game.untouched = true;
-           // this.setVisible(false);
-        }
     }
 
     Timer timer = new Timer(2000,this);
@@ -106,6 +101,7 @@ public class CombatForm extends JFrame implements ActionListener {
         }
         if (monster.endurance <= 0) {
             text.setText("YOU WON! YAY!");
+            player.gold += 2;
             game.map.kill(x, y);
             timer.start();
             bool = false;
