@@ -7,6 +7,7 @@
 
 # Actors (player, monsters, etc.)
 player , actor2.png
+minotaur , minotaurPic.png
 
 # Items
 g , gold.png
