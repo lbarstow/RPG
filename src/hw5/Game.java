@@ -31,7 +31,7 @@ public class Game {
         player = new Player(1, 10);
         player.x = 1;
         player.y = 1;
-        minotaur = new Minotaur();
+        minotaur = new Minotaur(map);
         minotaur.x = 26;
         minotaur.y = 16;
 
