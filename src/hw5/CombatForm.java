@@ -106,5 +106,6 @@ public class CombatForm extends JFrame implements ActionListener {
         int force = player.damage;
         int hurt = monster.attackForce;
 
+
     }
 }
