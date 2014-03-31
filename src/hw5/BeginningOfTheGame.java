@@ -49,7 +49,7 @@ public class BeginningOfTheGame extends JFrame implements ActionListener{
         this.text.append(System.lineSeparator() + "Whoa! This is a weird dream..."
                 + System.lineSeparator() + "Seems like you're in a labyrinth.");
         this.text.append(System.lineSeparator() + "This can mean only one thing! - Slay the minotaur to wake up!");
-        this.text.append(System.lineSeparator() + "But first..." + System.lineSeparator() + "Poe-tay-toe or Puh-tah-toh");
+        this.text.append(System.lineSeparator() + "But first..." + System.lineSeparator() + "Poe-tay-toe or Puh-tah-toh?");
 
         this.panel.add(button1);
         this.panel.add(button2);
