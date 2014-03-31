@@ -164,7 +164,7 @@ public class Game {
     }
 
     private void checkMinotaurDead(){
-        if(player.health <= 0){
+        if(minotaurMonster.endurance <= 0){
             System.exit(0);
         }
     }
