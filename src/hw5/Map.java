@@ -43,6 +43,10 @@ public class Map
 		}
 	}
 
+    public String getKey(int x, int y){
+        return terrain[x][y];
+    }
+
 	public void loadMap(String mapName)
 	{
 		String terrainMapName = mapName + ".terrain.map";

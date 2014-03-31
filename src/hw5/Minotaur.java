@@ -16,45 +16,93 @@ public class Minotaur extends Agent{
     }
 
     Random selector = new Random();
-    List<Character> upDownDirectionList = new ArrayList<Character>();
-    List<Character> rightLeftDirectionList = new ArrayList<Character>();
+    List<String> nDirectionList = new ArrayList<String>();
+    List<String> sDirectionList = new ArrayList<String>();
+    List<String> wDirectionList = new ArrayList<String>();
+    List<String> eDirectionList = new ArrayList<String>();
 
 
     @Override
     public void think()
     {
-        upDownDirectionList.add('n');
-        upDownDirectionList.add('s');
-        rightLeftDirectionList.add('e');
-        rightLeftDirectionList.add('w');
-        int selectorInt = selector.nextInt(2);
-        char direction = upDownDirectionList.get(selectorInt);
-        moveMinotaur(direction);
-        selectorInt = selector.nextInt(2);
-        direction = rightLeftDirectionList.get(selectorInt);
-        moveMinotaur(direction);
-        selectorInt = selector.nextInt(2);
-        direction = upDownDirectionList.get(selectorInt);
-        moveMinotaur(direction);
-        selectorInt = selector.nextInt(2);
-        direction = rightLeftDirectionList.get(selectorInt);
-        moveMinotaur(direction);
+        nDirectionList.add("n");
+        nDirectionList.add("n");
+        nDirectionList.add("n");
+        nDirectionList.add("n");
+        nDirectionList.add("n");
+        nDirectionList.add("n");
+        nDirectionList.add("s");
+        nDirectionList.add("e");
+        nDirectionList.add("w");
+
+        sDirectionList.add("n");
+        sDirectionList.add("s");
+        sDirectionList.add("s");
+        sDirectionList.add("s");
+        sDirectionList.add("s");
+        sDirectionList.add("s");
+        sDirectionList.add("s");
+        sDirectionList.add("e");
+        sDirectionList.add("w");
+
+        eDirectionList.add("n");
+        eDirectionList.add("s");
+        eDirectionList.add("e");
+        eDirectionList.add("e");
+        eDirectionList.add("e");
+        eDirectionList.add("e");
+        eDirectionList.add("e");
+        eDirectionList.add("e");
+        eDirectionList.add("w");
+
+        wDirectionList.add("n");
+        wDirectionList.add("s");
+        wDirectionList.add("e");
+        wDirectionList.add("w");
+        wDirectionList.add("w");
+        wDirectionList.add("w");
+        wDirectionList.add("w");
+        wDirectionList.add("w");
+        wDirectionList.add("w");
+
+
+
+        if(map.getKey(this.x,this.y).equals(".")){
+            int selectorInt = selector.nextInt(9);
+            String direction = nDirectionList.get(selectorInt);
+            moveMinotaur(direction);
+        }
+        if(map.getKey(this.x,this.y).equals("\'")){
+            int selectorInt = selector.nextInt(9);
+            String direction = sDirectionList.get(selectorInt);
+            moveMinotaur(direction);
+        }
+        if(map.getKey(this.x,this.y).equals("`")){
+            int selectorInt = selector.nextInt(9);
+            String direction = eDirectionList.get(selectorInt);
+            moveMinotaur(direction);
+        }
+        if(map.getKey(this.x,this.y).equals("\"")){
+            int selectorInt = selector.nextInt(9);
+            String direction = wDirectionList.get(selectorInt);
+            moveMinotaur(direction);
+        }
     }
 
-    public void moveMinotaur(char direction) {
+    public void moveMinotaur(String direction) {
         int a = x;
         int b = y;
         switch (direction) {
-            case 'n':
+            case "n":
                 b = y - 1;
                 break;
-            case 's':
+            case "s":
                 b = y + 1;
                 break;
-            case 'e':
+            case "e":
                 a = x + 1;
                 break;
-            case 'w':
+            case "w":
                 a = x - 1;
                 break;
         }

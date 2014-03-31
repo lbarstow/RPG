@@ -22,6 +22,13 @@ s , pheonixFloor.png
 e , eyeHands.png
 f , firey.png
 . , floor.png
+# Up
+' , floor.png
+# Down
+" , floor.png
+# Left
+` , floor.png
+# Right
 l , ogre.png
 ^ , wall.png
 T , tree.png
