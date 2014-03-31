@@ -101,7 +101,15 @@ public class CombatForm extends JFrame implements ActionListener {
         }
         if (monster.endurance <= 0) {
             text.setText("YOU WON! YAY!");
-            player.gold += 2;
+            if(monster.mName.equalsIgnoreCase("EyeMan")){
+                player.gold += 14;
+            }
+            if(monster.mName.equalsIgnoreCase("Fire Monster")){
+                player.gold += 10;
+            }
+            if(monster.mName.equalsIgnoreCase("Ogre")){
+                player.gold += 20;
+            }
             game.map.kill(x, y);
             timer.start();
             bool = false;
