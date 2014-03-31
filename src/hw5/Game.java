@@ -115,6 +115,7 @@ public class Game {
         }
         hitMinotaur();
         minotaur.think();
+        minotaur.think();
     }
 
     /**

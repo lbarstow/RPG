@@ -31,11 +31,13 @@ public class Minotaur extends Agent{
         nDirectionList.add("n");
         nDirectionList.add("n");
         nDirectionList.add("n");
+        nDirectionList.add("n");
         nDirectionList.add("s");
         nDirectionList.add("e");
         nDirectionList.add("w");
 
         sDirectionList.add("n");
+        sDirectionList.add("s");
         sDirectionList.add("s");
         sDirectionList.add("s");
         sDirectionList.add("s");
@@ -53,6 +55,7 @@ public class Minotaur extends Agent{
         eDirectionList.add("e");
         eDirectionList.add("e");
         eDirectionList.add("e");
+        eDirectionList.add("e");
         eDirectionList.add("w");
 
         wDirectionList.add("n");
@@ -64,26 +67,27 @@ public class Minotaur extends Agent{
         wDirectionList.add("w");
         wDirectionList.add("w");
         wDirectionList.add("w");
+        wDirectionList.add("w");
 
 
 
         if(map.getKey(this.x,this.y).equals(".")){
-            int selectorInt = selector.nextInt(9);
+            int selectorInt = selector.nextInt(10);
             String direction = nDirectionList.get(selectorInt);
             moveMinotaur(direction);
         }
         if(map.getKey(this.x,this.y).equals("\'")){
-            int selectorInt = selector.nextInt(9);
+            int selectorInt = selector.nextInt(10);
             String direction = sDirectionList.get(selectorInt);
             moveMinotaur(direction);
         }
         if(map.getKey(this.x,this.y).equals("`")){
-            int selectorInt = selector.nextInt(9);
+            int selectorInt = selector.nextInt(10);
             String direction = eDirectionList.get(selectorInt);
             moveMinotaur(direction);
         }
         if(map.getKey(this.x,this.y).equals("\"")){
-            int selectorInt = selector.nextInt(9);
+            int selectorInt = selector.nextInt(10);
             String direction = wDirectionList.get(selectorInt);
             moveMinotaur(direction);
         }
