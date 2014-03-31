@@ -1,13 +1,13 @@
 package hw5;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
- *
  * @author baylor
  */
-public class Application
-{
-	public static void main(String[] args)
-	{
+public class Application {
+    public static void main(String[] args) {
         //--- The game is where all the interesting stuff happens
         //--- Formally, it's called the Model
         //--- The thing that draws the picture is called the View
@@ -23,15 +23,13 @@ public class Application
         //InteractionForm inter = new InteractionForm("Protein Powder", "Steroids", "Protein Powder increased you maximum health!", "The Steroids increased you maximum damage!");
         //inter.setVisible(true);
 
-        Game theGame = new Game();
+        BeginningOfTheGame beginningOfTheGame = new BeginningOfTheGame();
+        beginningOfTheGame.setVisible(true);
+
+       // while (beginningOfTheGame.getCompletion()) {
+      //  }
 
 
-        // TODO: Load character screen, create/edit character
+    }
 
-
-        //--- The map screen is a View of our game
-        //--- It's also our Controller when navigating the map
-        MainForm mapScreen = new MainForm(theGame);
-        mapScreen.setVisible(true);
-	}
 }

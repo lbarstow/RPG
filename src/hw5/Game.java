@@ -25,14 +25,15 @@ public class Game {
     public Monster minotaurMonster = new Monster("Minotaur", 30, 140, "minotaurPic.png", 140);
 
 
-    public Game() {
+    public Game(Player player) {
         //--- Load a map
         map = new Map("main");
 
         //--- Create a player, stick him in the top left corner
-        player = new Player(8, 100);
-        player.x = 1;
-        player.y = 1;
+        this.player = player;
+        //player = new Player(8, 100);
+        this.player.x = 1;
+        this.player.y = 1;
         minotaur = new Minotaur(map);
         minotaur.x = 26;
         minotaur.y = 16;
