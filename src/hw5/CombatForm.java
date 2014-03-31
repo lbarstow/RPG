@@ -70,12 +70,18 @@ public class CombatForm extends JFrame implements ActionListener {
         if (event.getSource() == fastAttackButton) {
             text.setText("You made a fast attack!");
             speed();
-            combatRound();
+            combat = combatRound();
+            if(!combat){
+
+            }
         }
         if (event.getSource() == heavyAttackButton) {
             text.setText("You made a heavy attack!");
             force();
-            combatRound();
+            combat = combatRound();
+            if(!combat){
+
+            }
         }
         if (event.getSource() == runAwayButton) {
             text.setText("You ran away!");
@@ -90,10 +96,9 @@ public class CombatForm extends JFrame implements ActionListener {
         }
         monsterHealth.setText("The monster's current health is: " + monster.endurance + "/" + monster.fierceness);
         playerHealth.setText("Your current health is: " + player.health + "/" + player.maxHealth);
-
     }
 
-    private void combatRound() {
+    private boolean combatRound() {
         boolean bool = true;
         if (player.health <= 0) {
             text.setText("YOU DIED! OH NO!");
@@ -110,11 +115,13 @@ public class CombatForm extends JFrame implements ActionListener {
             if(monster.mName.equalsIgnoreCase("Ogre")){
                 player.gold += 20;
             }
+            if(monster.mName.equalsIgnoreCase("Minotaur")){
+                bool = false;
+            }
             game.map.kill(x, y);
             timer.start();
-            bool = false;
         }
-        combat = bool;
+        return bool;
     }
 
     public void speed(){
@@ -144,10 +151,5 @@ public class CombatForm extends JFrame implements ActionListener {
     public void flee() {
         int loss = (monster.fierceness-monster.endurance)/2;
         monster.endurance += loss;
-        combat = false;
-
-
-
-
     }
 }

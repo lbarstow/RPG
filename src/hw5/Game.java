@@ -22,6 +22,7 @@ public class Game {
     public HashMap<String, Monster> enemies = new HashMap<String, Monster>();
     public HashMap<String, Helper> helpers = new HashMap<String, Helper>();
     public boolean untouched = true;
+    public Monster minotaurMonster = new Monster("Minotaur", 30, 140, "minotaurPic.png", 140);
 
 
     public Game() {
@@ -148,7 +149,6 @@ public class Game {
                     //player.y + " Minotaur x: " + minotaur.x + " Minotaur y: " + minotaur.y);
             if(player.x == minotaur.x && player.y == minotaur.y){
                 //System.out.println("HIT THE MINOTAUR");
-                Monster minotaurMonster = new Monster("Minotaur", 30, 140, "minotaurPic.png", 5);
                 CombatForm combo = new CombatForm(minotaurMonster, player, this, minotaur.x, minotaur.y);
                 combo.setVisible(true);
             }
