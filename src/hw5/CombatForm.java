@@ -14,7 +14,7 @@ public class CombatForm extends JFrame implements ActionListener {
     private JButton fastAttackButton;
     private JButton runAwayButton;
     private JButton heavyAttackButton;
-    private JLabel text;
+    private JTextArea text;
     private JLabel playerHealth;
     private JLabel monsterHealth;
     private JPanel panel;
@@ -41,7 +41,8 @@ public class CombatForm extends JFrame implements ActionListener {
         heavyAttackButton.addActionListener(this);
         runAwayButton = new JButton("Run Away");
         runAwayButton.addActionListener(this);
-        text = new JLabel();
+        text = new JTextArea();
+        text.setEditable(false);
         this.monster = monster;
         this.player = player;
         ImageIcon image2 = new ImageIcon("RPG/images/"+monster.imageName);
@@ -99,13 +100,19 @@ public class CombatForm extends JFrame implements ActionListener {
         if (monster.endurance <= 0) {
             text.setText("YOU WON! YAY!");
             if(monster.mName.equalsIgnoreCase("EyeMan")){
+                text.append(" (you earned 8 gold)");
                 player.gold += 8;
             }
             if(monster.mName.equalsIgnoreCase("Fire Monster")){
+                text.append(" (you earned 4 gold)");
                 player.gold += 4;
             }
             if(monster.mName.equalsIgnoreCase("Ogre")){
+                text.append(" (you earned 12 gold)");
                 player.gold += 12;
+            }
+            if(monster.mName.equalsIgnoreCase("minotaurMonster")){
+                text.append(" (the game is over now)");
             }
             game.map.kill(x, y);
             timer.start();
