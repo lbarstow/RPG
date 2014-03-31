@@ -78,6 +78,7 @@ public class BeginningOfTheGame extends JFrame implements ActionListener{
         }
         if (event.getSource() == button3){
             panel.removeAll();
+            this.setSize(220, 121);
             this.panel.add(text);
             this.text.setText("Gray or Beige?");
             panel.add(button5);
@@ -86,6 +87,7 @@ public class BeginningOfTheGame extends JFrame implements ActionListener{
         }
         if (event.getSource() == button4){
             panel.removeAll();
+            this.setSize(220, 121);
             this.panel.add(text);
             this.text.setText("Gray or Beige?");
             panel.add(button5);
@@ -95,6 +97,7 @@ public class BeginningOfTheGame extends JFrame implements ActionListener{
         }
         if (event.getSource() == button5){
             panel.removeAll();
+            this.setSize(220, 120);
             this.panel.add(text);
             this.text.setText("Health or Damage?");
             panel.add(button7);
@@ -103,6 +106,7 @@ public class BeginningOfTheGame extends JFrame implements ActionListener{
         }
         if (event.getSource() == button6){
             panel.removeAll();
+            this.setSize(220, 120);
             this.panel.add(text);
             this.text.setText("Health or Damage?");
             panel.add(button7);
