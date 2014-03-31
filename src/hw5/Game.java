@@ -63,6 +63,7 @@ public class Game {
 
     public void movePlayer(char direction) {
         checkDead();
+        checkMinotaurDead();
         int x = player.x;
         int y = player.y;
         switch (direction) {
@@ -155,6 +156,12 @@ public class Game {
         }
 
     private void checkDead(){
+        if(player.health <= 0){
+            System.exit(0);
+        }
+    }
+
+    private void checkMinotaurDead(){
         if(player.health <= 0){
             System.exit(0);
         }
